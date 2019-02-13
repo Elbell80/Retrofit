@@ -8,16 +8,18 @@ import android.widget.LinearLayout
 import com.example.retrofit.adapter.MoviesAdapter.MovieViewHolder
 import android.view.LayoutInflater
 import com.example.retrofit.R
+import com.example.retrofit.model.Movie
 import com.example.retrofit.model.MovieResponse
 
 
-class MoviesAdapter(val items : MutableList<MovieResponse>): RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
+class MoviesAdapter(val items : MutableList<Movie>): RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
+
     class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var moviesLayout: LinearLayout? = null
-        var movieTitle: TextView? = null
-        var data: TextView? = null
-        var movieDescription: TextView? = null
-        var rating: TextView? = null
+        var movieTitle= itemView.findViewById<TextView>(R.id.title)
+        var data= itemView.findViewById<TextView>(R.id.subtitle)
+        var movieDescription= itemView.findViewById<TextView>(R.id.description)
+        var rating= itemView.findViewById<TextView>(R.id.rating)
 
     }
 
@@ -28,12 +30,15 @@ class MoviesAdapter(val items : MutableList<MovieResponse>): RecyclerView.Adapte
     }
 
     override fun getItemCount(): Int {
-        return 0
+        return items.size
     }
 
     override fun onBindViewHolder(holder: MoviesAdapter.MovieViewHolder, p1: Int) {
         //holder.movieTitle.text(movies.get(position).getTitle());
-        //holder?.movieTitle?.text=
+        holder?.movieTitle?.text=items.get(p1).title
+        holder?.data?.text=items.get(p1).releaseDate
+        holder?.movieDescription?.text=items.get(p1).overview
+        holder?.rating?.text= items.get(p1).voteAverage.toString()
 
         }
 

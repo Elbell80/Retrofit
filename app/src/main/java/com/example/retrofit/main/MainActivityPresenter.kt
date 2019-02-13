@@ -1,5 +1,6 @@
 package com.example.retrofit.main
 
+import android.widget.Toast
 import com.example.retrofit.listener.OnFinishListener
 import com.example.retrofit.model.Movie
 import com.example.retrofit.model.MovieResponse
@@ -17,6 +18,8 @@ class MainActivityPresenter: MvpBasePresenter<MainActivityView>() {
             }
 
             override fun onFailure(messsage: String) {
+
+
 
             }
 

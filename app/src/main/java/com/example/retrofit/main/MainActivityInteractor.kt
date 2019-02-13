@@ -34,7 +34,7 @@ class MainActivityInteractor {
                 val movies = response?.body()?.results
                 if(movies!=null){
                     listener.onSuccess(movies)
-                    Log.d("retrofit", "Number of movies received: " + movies?.size)
+                    Log.d("retrofit", "Number of movies received: " + movies?.get(0).title)
                 }
             }
         })
